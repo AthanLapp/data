@@ -1,8 +1,4 @@
 import time
-#from fuzzywuzzy import fuzz
-
-# fuzz.WRatio('geeks for geeks', 'Geeks For Geeks')
-
 
 start_time = time.time()
 
@@ -28,53 +24,50 @@ cont = False
 j = 0
 
 def compareString(string1,string2):
-    if string1 == "" or string2 == "":
-        return 0
     comp=0
-    string1=string1.upper()
-    string2=string2.upper()
-    if string1 in string2 or string2 in string1:
-        return 100
+    string1.upper()
+    string2.upper()
+
+    if((string1=="")or(string2=="")):
+        return 0
     string1=list(string1)
     string2=list(string2)
     i=0
-    if len(string1)>len(string2):
-        for i in range(0,(len(string1)-len(string2))+2):
+    if(len(string1) >= len(string2)):
+        for i in range(len(string2),len(string1)):
             string2.append("")
-    stringL = len(string1)
-    i=0
-    for i in range(0,stringL):
-        if i <stringL-1:
-            if string1[i] == string2[i] or string1[i] == string2[i+1] :
-                comp+=1
-        else:
-            if string1[i] == string2[i]:
-                comp+=1
-    comp=comp/stringL
-    return comp
+    else:
+        for i in range(len(string1),len(string2)):
+            string1.append("")
+    for i in range(0,len(string1)):
+        if string1[i] == string2[i]:
+            comp+=1
+    comp=comp/(i)*100
+    return round(comp)
+
 i=0
 #for line in range(0,lines1):
 for line in range(0,500):
-    duplicates.append(data1[line])
-    duplicates.append(0)
     cont = False
-    for col in range(1,len(columns1)-1):
-        for line2 in range(line+1,500): #,lines1)
+    for line2 in range(line+1,500): #,lines1)
+        cont = False
+        for col in range(1,len(columns1)-1):
+            if cont: continue
             sims=0
-            for col2 in range(1,len(columns1)-1):
-                sim = compareString(data1[line][col],data1[line2][col2])
-                if sim > 27:
+            sim=0
+            sim=compareString(data1[line][col],data1[line2][col])
+            if sim>75:
+                cont=True
+                count=0
+                for j in range(1,len(columns1)-1):
+                    sims+= compareString(data1[line][j],data1[line2][j])
+                    count+=1
+                sims = sims/count
+                if sims >50 :
+                    duplicates.append(data1[line])
                     duplicates.append(data1[line2])
-                    cont=True
-                    for j in range(1,len(columns1)-1):
-                        sims+= compareString(data1[line][j],data1[line2][j])
-                    sims = round(sims/(len(columns1)-2))
                     duplicates.append(sims)
-                    cont=True
-                    continue
-                if cont: continue
-        if cont: continue
-
+        
 columns=columns1
 
 columnsOutput=""

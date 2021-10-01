@@ -56,7 +56,7 @@ for line in range(0,6000):
             sims=0
             sim=0
             sim=compareString(data1[line][col],data1[line2][col])
-            if sim>80:
+            if sim>81:
                 cont=True
                 count=0
                 for j in range(1,len(columns1)-1):

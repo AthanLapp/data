@@ -47,16 +47,18 @@ def compareString(string1,string2):
 
 i=0
 #for line in range(0,lines1):
-for line in range(0,6000):
+for line in range(0,8000):
     cont = False
-    for line2 in range(line+1,5000): #,lines1)
+    for line2 in range(line+1,8000): #,lines1)
         cont = False
         for col in range(1,len(columns1)-1):
             if cont: continue
             sims=0
             sim=0
             sim=compareString(data1[line][col],data1[line2][col])
-            if sim>81:
+            if(col==4):
+                sim=0
+            if (sim>80):
                 cont=True
                 count=0
                 for j in range(1,len(columns1)-1):
@@ -88,7 +90,7 @@ for line in duplicates:
                 continue
             lineOutput=lineOutput+str(word)+","
     lineOutput=lineOutput.rstrip(",")+"\n"
-fout = open("deduplicated.csv", "w")
+fout = open("dedublicated8000.csv", "w")
 fout.write(columnsOutput)
 fout.write(lineOutput)
 fout.close()

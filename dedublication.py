@@ -68,7 +68,7 @@ for line in range(0,500):
                     cont=True
                     for j in range(1,len(columns1)-1):
                         sims+= compareString(data1[line][j],data1[line2][j])
-                    sims = round(sims/len(columns1))
+                    sims = round(sims/(len(columns1)-2))
                     duplicates.append(sims)
                     cont=True
                     continue

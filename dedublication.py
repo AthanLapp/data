@@ -47,23 +47,23 @@ def compareString(string1,string2):
 
 i=0
 #for line in range(0,lines1):
-for line in range(0,500):
+for line in range(0,6000):
     cont = False
-    for line2 in range(line+1,500): #,lines1)
+    for line2 in range(line+1,5000): #,lines1)
         cont = False
         for col in range(1,len(columns1)-1):
             if cont: continue
             sims=0
             sim=0
             sim=compareString(data1[line][col],data1[line2][col])
-            if sim>75:
+            if sim>80:
                 cont=True
                 count=0
                 for j in range(1,len(columns1)-1):
                     sims+= compareString(data1[line][j],data1[line2][j])
                     count+=1
                 sims = sims/count
-                if sims >50 :
+                if sims >53 :
                     duplicates.append(data1[line])
                     duplicates.append(data1[line2])
                     duplicates.append(sims)

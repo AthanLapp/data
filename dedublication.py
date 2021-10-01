@@ -63,7 +63,7 @@ for line in range(0,500):
             sims=0
             for col2 in range(1,len(columns1)-1):
                 sim = compareString(data1[line][col],data1[line2][col2])
-                if sim > 60:
+                if sim > 27:
                     duplicates.append(data1[line2])
                     cont=True
                     for j in range(1,len(columns1)-1):

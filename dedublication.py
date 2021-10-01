@@ -46,10 +46,10 @@ def compareString(string1,string2):
     return round(comp)
 
 i=0
-#for line in range(0,lines1):
-for line in range(0,8000):
+#for line in range(0,1000):
+for line in range(0,line1):
     cont = False
-    for line2 in range(line+1,8000): #,lines1)
+    for line2 in range(line+1,line1): #,1000)
         cont = False
         for col in range(1,len(columns1)-1):
             if cont: continue
@@ -90,7 +90,7 @@ for line in duplicates:
                 continue
             lineOutput=lineOutput+str(word)+","
     lineOutput=lineOutput.rstrip(",")+"\n"
-fout = open("dedublicated8000.csv", "w")
+fout = open("dedublicatedWhole.csv", "w")
 fout.write(columnsOutput)
 fout.write(lineOutput)
 fout.close()

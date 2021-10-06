@@ -65,7 +65,7 @@ for line in range(0,line1):
                     sims+= compareString(data1[line][j],data1[line2][j])
                     count+=1
                 sims = sims/count
-                if sims >53 :
+                if sims >60 :
                     duplicates.append(data1[line])
                     duplicates.append(data1[line2])
                     duplicates.append(sims)

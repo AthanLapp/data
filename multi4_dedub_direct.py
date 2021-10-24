@@ -178,9 +178,9 @@ def main():
 		columnsOutput = columnsOutput+columns[i].rstrip("\n")+","
 	columnsOutput=columnsOutput.rstrip(",")+"\n"
 	p1 = Process(target = mainz1, args=(data1,len(columns1),0,2000,20000))
-	p2 = Process(target = mainz1, args=(data1,len(columns1),2000,6000,20000))
-	p3 = Process(target = mainz2, args=(data1,len(columns1),6000,12000,20000))
-	p4 = Process(target = mainz1, args=(data1,len(columns1),12000,20000,20000))
+	p2 = Process(target = mainz2, args=(data1,len(columns1),2000,6000,20000))
+	p3 = Process(target = mainz3, args=(data1,len(columns1),6000,12000,20000))
+	p4 = Process(target = mainz4, args=(data1,len(columns1),12000,20000,20000))
 	p1.start()
 	p2.start()
 	p3.start()

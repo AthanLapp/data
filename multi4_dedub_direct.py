@@ -65,7 +65,7 @@ def mainz2(data1,lencol,linestart,linestop,end):
 	sims = 0
 	cont = False
 	j = 0
-	fout2 = open("dedublicated2000_2.csv", "w")
+	fout2 = open("dedublicated20000_2.csv", "w")
 	for line in range(linestart,linestop):
 		cont = False
 		for line2 in range(line+1,end): #,lines1)
@@ -99,7 +99,7 @@ def mainz3(data1,lencol,linestart,linestop,end):
 	sims = 0
 	cont = False
 	j = 0
-	fout2 = open("dedublicated2000_3.csv", "w")
+	fout2 = open("dedublicated20000_3.csv", "w")
 	for line in range(linestart,linestop):
 		cont = False
 		for line2 in range(line+1,end): #,lines1)
@@ -132,7 +132,7 @@ def mainz4(data1,lencol,linestart,linestop,end):
 	sims = 0
 	cont = False
 	j = 0
-	fout2 = open("dedublicated2000_4.csv", "w")
+	fout2 = open("dedublicated20000_4.csv", "w")
 	for line in range(linestart,linestop):
 		cont = False
 		for line2 in range(line+1,end): #,lines1)
@@ -177,9 +177,9 @@ def main():
 	for i in range(0,len(columns)):
 		columnsOutput = columnsOutput+columns[i].rstrip("\n")+","
 	columnsOutput=columnsOutput.rstrip(",")+"\n"
-	p1 = Process(target = mainz1, args=(data1,len(columns1),0,2000,20000))
-	p2 = Process(target = mainz2, args=(data1,len(columns1),2000,6000,20000))
-	p3 = Process(target = mainz3, args=(data1,len(columns1),6000,12000,20000))
+	p1 = Process(target = mainz1, args=(data1,len(columns1),0,2500,20000))
+	p2 = Process(target = mainz2, args=(data1,len(columns1),2500,5500,20000))
+	p3 = Process(target = mainz3, args=(data1,len(columns1),5500,12000,20000))
 	p4 = Process(target = mainz4, args=(data1,len(columns1),12000,20000,20000))
 	p1.start()
 	p2.start()
@@ -197,10 +197,10 @@ def main():
 	fhand = open('dedublicated20000_2.csv')
 	for line in fhand:
 		fout.write(line)
-		fhand = open('dedublicated20000_3.csv')
+	fhand = open('dedublicated20000_3.csv')
 	for line in fhand:
 		fout.write(line)
-		fhand = open('dedublicated20000_4.csv')
+	fhand = open('dedublicated20000_4.csv')
 	for line in fhand:
 		fout.write(line)
 	fout.close()

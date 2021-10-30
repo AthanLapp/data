@@ -177,10 +177,10 @@ def main():
 	for i in range(0,len(columns)):
 		columnsOutput = columnsOutput+columns[i].rstrip("\n")+","
 	columnsOutput=columnsOutput.rstrip(",")+"\n"
-	p1 = Process(target = mainz1, args=(data1,len(columns1),0,2500,20000))
-	p2 = Process(target = mainz2, args=(data1,len(columns1),2500,5500,20000))
-	p3 = Process(target = mainz3, args=(data1,len(columns1),5500,12000,20000))
-	p4 = Process(target = mainz4, args=(data1,len(columns1),12000,20000,20000))
+	p1 = Process(target = mainz1, args=(data1,len(columns1),0,2680,20000))
+	p2 = Process(target = mainz2, args=(data1,len(columns1),2680,5740,20000))
+	p3 = Process(target = mainz3, args=(data1,len(columns1),5740,10080,20000))
+	p4 = Process(target = mainz4, args=(data1,len(columns1),10080,20000,20000))
 	p1.start()
 	p2.start()
 	p3.start()

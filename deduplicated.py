@@ -77,10 +77,10 @@ def main():
 	for i in range(0,len(columns)):
 		columnsOutput = columnsOutput+columns[i].rstrip("\n")+","
 	columnsOutput=columnsOutput.rstrip(",")+"\n"
-	p1 = Process(target = mainz, args=("dedublicated20000_1.csv",data1,len(columns1),0,2595,20000))
-	p2 = Process(target = mainz, args=("dedublicated20000_2.csv",data1,len(columns1),2595,5790,20000))
-	p3 = Process(target = mainz, args=("dedublicated20000_3.csv",data1,len(columns1),5790,9950,20000))
-	p4 = Process(target = mainz, args=("dedublicated20000_4.csv",data1,len(columns1),9950,20000,20000))
+	p1 = Process(target = mainz, args=("dedublicated20000_1.csv",data1,len(columns1),0,2680,20000))
+	p2 = Process(target = mainz, args=("dedublicated20000_2.csv",data1,len(columns1),2680,5846,20000))
+	p3 = Process(target = mainz, args=("dedublicated20000_3.csv",data1,len(columns1),5846,9989,20000))
+	p4 = Process(target = mainz, args=("dedublicated20000_4.csv",data1,len(columns1),9989,20000,20000))
 	p1.start()
 	p2.start()
 	p3.start()
